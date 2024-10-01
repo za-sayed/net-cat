@@ -17,7 +17,7 @@ const (
 
 func main() {
 	// Initialize the server
-	port, err := getPortFromArgs()
+	port, err := getPort()
 	if err != nil {
 		fmt.Println("[USAGE]: ./TCPChat $port")
 		os.Exit(0)
@@ -41,7 +41,7 @@ func main() {
 }
 
 // getPortFromArgs retrieves the port from command line arguments
-func getPortFromArgs() (string, error) {
+func getPort() (string, error) {
 	if len(os.Args) < 2 {
 		return Port, nil // Return default port if none provided
 	} else if len(os.Args) > 2 {

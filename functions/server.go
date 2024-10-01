@@ -40,7 +40,7 @@ func (s *Server) NewServer(port string, maxClients int) error {
 func (s *Server) AllowConnection(conn net.Conn) bool {
 	s.mutex.Lock()
 	defer s.mutex.Unlock()
-	if s.MaxClients == 0 || len(s.Clients) < s.MaxClients {
+	if len(s.Clients) < s.MaxClients {
 		return true
 	}
 	return false
